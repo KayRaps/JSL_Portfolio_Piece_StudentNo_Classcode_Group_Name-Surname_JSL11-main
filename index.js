@@ -77,7 +77,7 @@ function displayBoards(boards) {
 
 }
 
-const colTitites = {
+const colTitles = {
   todo: 'todo',
   doing: "doing",
   done: "done"
