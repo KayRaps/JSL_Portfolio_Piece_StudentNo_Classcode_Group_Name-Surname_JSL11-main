@@ -21,6 +21,7 @@ initializeData();
 
 // TASK: Get elements from the DOM
 const elements = {
+
   headerBoardName : document.getElementById('header-board-name'),
   columnDivs: document.querySelectorAll('.column-div'),
   filterDiv: document.getElementById('filterDiv'),
@@ -29,8 +30,8 @@ const elements = {
   themeSwitch: document.getElementById('switch'),
   createNewTaskBtn: document.getElementById('add-new-task-btn'),
   modalWindow: document.querySelector('.modal-window'),
-  editTaskModal: document.querySelector('.edit-task-modal-window')
- 
+  editTaskModal: document.querySelector('.edit-task-modal-window'),
+  deleteBoardBtn: document.getElementById('delete-task-btn')
 };
 
 let activeBoard = "";
@@ -281,6 +282,7 @@ const deleteTaskBtn = document.getElementById('delete-task-btn');
   deleteTaskBtn.addEventListener('click', () => {
     deleteTask(task.id);
     toggleModal(false, elements.modalWindow);
+    refreshTasksUI();
   })
 
 
