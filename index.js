@@ -301,6 +301,13 @@ function saveTaskChanges(taskId) {
   
 
   // Create an object with the updated task details
+  const updatedTask = {
+    board: activeBoard,
+    description: elements.editTaskDescInput.value,
+    id: JSON.parse(localStorage.getItem("id")),
+    status: elements.editSelectStatus.value,
+    title: elements.editTaskTitleInput.value,
+   };
 
 
   // Update task using a hlper functoin
