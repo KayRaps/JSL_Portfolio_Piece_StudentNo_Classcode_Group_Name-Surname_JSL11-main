@@ -77,6 +77,12 @@ function displayBoards(boards) {
 
 }
 
+const colTitites = {
+  todo: 'todo',
+  doing: "doing",
+  done: "done"
+}
+
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
