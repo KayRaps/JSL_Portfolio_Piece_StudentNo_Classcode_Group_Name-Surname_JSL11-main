@@ -31,7 +31,8 @@ const elements = {
   createNewTaskBtn: document.getElementById('add-new-task-btn'),
   modalWindow: document.querySelector('.modal-window'),
   editTaskModal: document.querySelector('.edit-task-modal-window'),
-  deleteBoardBtn: document.getElementById('delete-task-btn')
+  deleteBoardBtn: document.getElementById('delete-task-btn'),
+  saveTaskChangesBtn: document.getElementById("save-task-changes-btn"),
 };
 
 let activeBoard = "";
