@@ -7,7 +7,7 @@ import {
 } from "./utils/taskFunctions.js";
 
 // TASK: import initialData
-
+import {intialData} from "./intialData";
 
 
 /*************************************************************************************************************************************************
