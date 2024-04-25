@@ -94,7 +94,8 @@ function filterAndDisplayTasksByBoard(boardName) {
   elements.columnDivs.forEach(column => {
     const status = column.getAttribute("data-status");
     // Reset column content while preserving the column title
-    column.colTitles = `<div class="column-head-div">
+    const colTitle = colTitles[status];
+    column.ineerHTML = `<div class="column-head-div">
                           <span class="dot" id="${status}-dot"></span>
                           <h4 class="columnHeader">${colTitle.toUpperCase()}</h4>
                         </div>`;
@@ -268,26 +269,21 @@ function openEditTaskModal(task) {
   
 
   // Get button elements from the task modal
-  elements.editTaskTitleInput.value = task.title;
-  elements.editSelectStatus.value = task.status;
-  elements.editTaskDescInput.value = task.description;
+  const saveTaskChangesBtn = document.getElementById('save-task-changes-btn');
+  const deleteTaskBtn = document.getElementById('delete-task-btn');
 
   // Call saveTaskChanges upon click of Save Changes button
-  elements.saveTaskChangesBtn.onclick = () => {
+  saveTaskChangesBtn.addEventListener('click', () => {
     saveTaskChanges(task.id);
-    toggleModal(false, elements.editTaskModal);
-    refreshTasksUI();
-   };
+    toggleModal(false, elements.modalWindow);
+  })
  
 
   // Delete task using a helper function and close the task modal
-  elements.deleteTaskBtn.onclick = () => {
-    if (confirm("Are you sure you want to delete this task?")) {
-     deleteTask(task.id);
-     toggleModal(false, elements.editTaskModal);
-     refreshTasksUI();
-    }
-   };
+  deleteTaskBtn.addEventListener('click', () => {
+    deleteTask(task.id);
+    toggleModal(false, elements.modalWindow);
+  })
 
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
@@ -301,17 +297,14 @@ function saveTaskChanges(taskId) {
   
 
   // Create an object with the updated task details
-  const updatedTask = {
-    board: activeBoard,
-    description: elements.editTaskDescInput.value,
-    id: JSON.parse(localStorage.getItem("id")),
-    status: elements.editSelectStatus.value,
-    title: elements.editTaskTitleInput.value,
-   };
-
+  const updatedTask ={
+    task : titleInput,
+    description : descriptionInput,
+    status : statusInput,
+    board: activeBoard
+  }
 
   // Update task using a hlper functoin
-  patchTask(taskId, updatedTask);
   putTask(taskId, updatedTask);
  
  
