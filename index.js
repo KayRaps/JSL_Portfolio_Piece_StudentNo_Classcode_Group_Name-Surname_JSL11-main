@@ -268,7 +268,9 @@ function openEditTaskModal(task) {
   
 
   // Get button elements from the task modal
-
+  elements.editTaskTitleInput.value = task.title;
+  elements.editSelectStatus.value = task.status;
+  elements.editTaskDescInput.value = task.description;
 
   // Call saveTaskChanges upon click of Save Changes button
  
