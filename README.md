@@ -15,11 +15,8 @@
 * HTML
 * CSS
 * JavaScript
-* Contributing
-* Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Reflections
 
-
-
-
-
+* It was challenging working on a long code like this one, I felt like I was already a senior sofware engineer.
+* I realised that I can read a code but not really understand it, but I can see it, it is not so blank as before.
